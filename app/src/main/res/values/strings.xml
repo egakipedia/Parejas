@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Parejas</string>
+    <string name="et_titulo">Encuentra las Parejas</string>
+    <string name="btn_reiniciar">Reiniciar Juego</string>
+    <string name="img_a1">Imágen</string>
+    <string name="img_a2">Imágen</string>
+    <string name="img_b1">Imágen</string>
+    <string name="img_b2">Imágen</string>
+    <string name="img_c1">Imágen</string>
+    <string name="img_c2">Imágen</string>
+    <string name="img_d1">Imágen</string>
+    <string name="img_d2">Imágen</string>
+    <string name="tv1">resultado</string>
+    <string name="tv2">resultado</string>
+    <string name="tv3">resultado</string>
+    <string name="tv4">resultado</string>
+    <string name="tv5">resultado</string>
+    <string name="tv6">resultado</string>
+    <string name="tv7">resultado</string>
+    <string name="tv8">resultado</string>
+</resources>
