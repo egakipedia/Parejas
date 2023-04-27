@@ -160,14 +160,6 @@ public class MainActivity extends AppCompatActivity {
         return numero;
     }
 
-    public static void esperar(int segundos){
-        try {
-            Thread.sleep(segundos * 1000);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
     public void Reiniciar(View view){
         Intent next = new Intent(this, MainActivity.class);
         startActivity(next);

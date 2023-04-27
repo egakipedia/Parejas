@@ -149,6 +149,8 @@
         android:id="@+id/tv_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/tv1"
         app:layout_constraintBottom_toTopOf="@+id/tv_2"
         app:layout_constraintStart_toStartOf="parent" />
@@ -165,7 +167,8 @@
         android:id="@+id/tv_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/tv3"
         app:layout_constraintBottom_toTopOf="@+id/tv_4"
         app:layout_constraintStart_toEndOf="@+id/tv_1" />
@@ -183,7 +186,8 @@
         android:id="@+id/tv_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/tv5"
         app:layout_constraintBottom_toTopOf="@+id/tv_6"
         app:layout_constraintStart_toEndOf="@+id/tv_3" />
@@ -192,7 +196,7 @@
         android:id="@+id/tv_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="44dp"
         android:text="@string/tv6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_4" />
@@ -201,8 +205,8 @@
         android:id="@+id/tv_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/tv7"
         app:layout_constraintBottom_toTopOf="@+id/tv_8"
         app:layout_constraintStart_toEndOf="@+id/tv_5" />
@@ -211,6 +215,7 @@
         android:id="@+id/tv_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
         android:text="@string/tv8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_6" />
