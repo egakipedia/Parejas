@@ -140,6 +140,7 @@
         android:onClick="Reiniciar"
         android:text="@string/btn_reiniciar"
         android:textSize="16sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,6 +153,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/tv1"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/tv_2"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -160,6 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv2"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -170,6 +173,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginBottom="16dp"
         android:text="@string/tv3"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/tv_4"
         app:layout_constraintStart_toEndOf="@+id/tv_1" />
 
@@ -179,6 +183,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="@string/tv4"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_2" />
 
@@ -189,6 +194,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginBottom="16dp"
         android:text="@string/tv5"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/tv_6"
         app:layout_constraintStart_toEndOf="@+id/tv_3" />
 
@@ -198,6 +204,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:text="@string/tv6"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_4" />
 
@@ -208,6 +215,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="16dp"
         android:text="@string/tv7"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/tv_8"
         app:layout_constraintStart_toEndOf="@+id/tv_5" />
 
@@ -217,6 +225,29 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:text="@string/tv8"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_6" />
+
+    <TextView
+        android:id="@+id/tv_r1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tv_resultado1"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_r2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/tv_resultado2"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

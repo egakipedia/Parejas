@@ -4,16 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageView iv1, iv2, iv3, iv4, iv5, iv6, iv7, iv8;
-    private TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8;
+    private TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, resultado1, resultado2;
+
+    private final int duraccion = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +41,13 @@ public class MainActivity extends AppCompatActivity {
         tv6 = findViewById(R.id.tv_6);
         tv7 = findViewById(R.id.tv_7);
         tv8 = findViewById(R.id.tv_8);
+        resultado1 = findViewById(R.id.tv_r1);
+        resultado2 = findViewById(R.id.tv_r2);
 
 
         ArrayList<Integer> imagenes = new ArrayList<Integer>();
         ArrayList<Integer> elegidos = new ArrayList<Integer>();
+        ArrayList<Integer> abiertas = new ArrayList<Integer>();
 
         imagenes.add(R.drawable.conejo);
         imagenes.add(R.drawable.leon);
@@ -103,52 +110,494 @@ public class MainActivity extends AppCompatActivity {
         iv7.setImageResource(R.drawable.reverso);
         iv8.setImageResource(R.drawable.reverso);
 
+
+
         iv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iv1.setImageResource(imagenes.get(elegidos.get(0)));
+
+                if(resultado1.getText().equals("vacio")){
+                    resultado1.setText(elegidos.get(0).toString());
+                }else{
+                    resultado2.setText(elegidos.get(0).toString());
+                    if(resultado1.getText().equals(resultado2.getText())){
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                        abiertas.add(elegidos.get(0));
+                    }else{
+                        Toast.makeText(MainActivity.this, "OHHH NOOO!!! Prueba otra vez!!!", Toast.LENGTH_SHORT).show();
+
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                int tv1Int = Integer.parseInt(tv1.getText().toString());
+                                int tv2Int = Integer.parseInt(tv2.getText().toString());
+                                int tv3Int = Integer.parseInt(tv3.getText().toString());
+                                int tv4Int = Integer.parseInt(tv4.getText().toString());
+                                int tv5Int = Integer.parseInt(tv5.getText().toString());
+                                int tv6Int = Integer.parseInt(tv6.getText().toString());
+                                int tv7Int = Integer.parseInt(tv7.getText().toString());
+                                int tv8Int = Integer.parseInt(tv8.getText().toString());
+
+                                if(!abiertas.contains(tv1Int)){
+                                    iv1.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv2Int)) {
+                                    iv2.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv3Int)){
+                                    iv3.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv4Int)){
+                                    iv4.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv5Int)){
+                                    iv5.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv6Int)){
+                                    iv6.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv7Int)){
+                                    iv7.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv8Int)){
+                                    iv8.setImageResource(R.drawable.reverso);
+                                }
+                            }
+                        }, duraccion);
+
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                    }
+                }
             }
         });
         iv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iv2.setImageResource(imagenes.get(elegidos.get(1)));
+
+                if(resultado1.getText().equals("vacio")){
+                    resultado1.setText(elegidos.get(1).toString());
+                }else{
+                    resultado2.setText(elegidos.get(1).toString());
+                    if(resultado1.getText().equals(resultado2.getText())){
+                        Toast.makeText(MainActivity.this, "Respuesta Correcta!!!!", Toast.LENGTH_SHORT).show();
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                        abiertas.add(elegidos.get(1));
+                    }else{
+                        Toast.makeText(MainActivity.this, "OHHH NOOO!!! Prueba otra vez!!!", Toast.LENGTH_SHORT).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                int tv1Int = Integer.parseInt(tv1.getText().toString());
+                                int tv2Int = Integer.parseInt(tv2.getText().toString());
+                                int tv3Int = Integer.parseInt(tv3.getText().toString());
+                                int tv4Int = Integer.parseInt(tv4.getText().toString());
+                                int tv5Int = Integer.parseInt(tv5.getText().toString());
+                                int tv6Int = Integer.parseInt(tv6.getText().toString());
+                                int tv7Int = Integer.parseInt(tv7.getText().toString());
+                                int tv8Int = Integer.parseInt(tv8.getText().toString());
+
+                                if(!abiertas.contains(tv1Int)){
+                                    iv1.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv2Int)) {
+                                    iv2.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv3Int)){
+                                    iv3.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv4Int)){
+                                    iv4.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv5Int)){
+                                    iv5.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv6Int)){
+                                    iv6.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv7Int)){
+                                    iv7.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv8Int)){
+                                    iv8.setImageResource(R.drawable.reverso);
+                                }
+                            }
+                        }, duraccion);
+
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                    }
+                }
             }
         });
         iv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iv3.setImageResource(imagenes.get(elegidos.get(2)));
+
+                if(resultado1.getText().equals("vacio")){
+                    resultado1.setText(elegidos.get(2).toString());
+                }else{
+                    resultado2.setText(elegidos.get(2).toString());
+                    if(resultado1.getText().equals(resultado2.getText())){
+                        Toast.makeText(MainActivity.this, "Respuesta Correcta!!!!", Toast.LENGTH_SHORT).show();
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                        abiertas.add(elegidos.get(2));
+                    }else{
+                        Toast.makeText(MainActivity.this, "OHHH NOOO!!! Prueba otra vez!!!", Toast.LENGTH_SHORT).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                int tv1Int = Integer.parseInt(tv1.getText().toString());
+                                int tv2Int = Integer.parseInt(tv2.getText().toString());
+                                int tv3Int = Integer.parseInt(tv3.getText().toString());
+                                int tv4Int = Integer.parseInt(tv4.getText().toString());
+                                int tv5Int = Integer.parseInt(tv5.getText().toString());
+                                int tv6Int = Integer.parseInt(tv6.getText().toString());
+                                int tv7Int = Integer.parseInt(tv7.getText().toString());
+                                int tv8Int = Integer.parseInt(tv8.getText().toString());
+
+                                if(!abiertas.contains(tv1Int)){
+                                    iv1.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv2Int)) {
+                                    iv2.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv3Int)){
+                                    iv3.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv4Int)){
+                                    iv4.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv5Int)){
+                                    iv5.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv6Int)){
+                                    iv6.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv7Int)){
+                                    iv7.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv8Int)){
+                                    iv8.setImageResource(R.drawable.reverso);
+                                }
+                            }
+                        }, duraccion);
+
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                    }
+                }
             }
         });
         iv4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iv4.setImageResource(imagenes.get(elegidos.get(3)));
+
+                if(resultado1.getText().equals("vacio")){
+                    resultado1.setText(elegidos.get(3).toString());
+                }else{
+                    resultado2.setText(elegidos.get(3).toString());
+                    if(resultado1.getText().equals(resultado2.getText())){
+                        Toast.makeText(MainActivity.this, "Respuesta Correcta!!!!", Toast.LENGTH_SHORT).show();
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                        abiertas.add(elegidos.get(3));
+                    }else{
+                        Toast.makeText(MainActivity.this, "OHHH NOOO!!! Prueba otra vez!!!", Toast.LENGTH_SHORT).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                int tv1Int = Integer.parseInt(tv1.getText().toString());
+                                int tv2Int = Integer.parseInt(tv2.getText().toString());
+                                int tv3Int = Integer.parseInt(tv3.getText().toString());
+                                int tv4Int = Integer.parseInt(tv4.getText().toString());
+                                int tv5Int = Integer.parseInt(tv5.getText().toString());
+                                int tv6Int = Integer.parseInt(tv6.getText().toString());
+                                int tv7Int = Integer.parseInt(tv7.getText().toString());
+                                int tv8Int = Integer.parseInt(tv8.getText().toString());
+
+                                if(!abiertas.contains(tv1Int)){
+                                    iv1.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv2Int)) {
+                                    iv2.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv3Int)){
+                                    iv3.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv4Int)){
+                                    iv4.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv5Int)){
+                                    iv5.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv6Int)){
+                                    iv6.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv7Int)){
+                                    iv7.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv8Int)){
+                                    iv8.setImageResource(R.drawable.reverso);
+                                }
+                            }
+                        }, duraccion);
+
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                    }
+                }
             }
         });
         iv5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iv5.setImageResource(imagenes.get(elegidos.get(4)));
+
+                if(resultado1.getText().equals("vacio")){
+                    resultado1.setText(elegidos.get(4).toString());
+                }else{
+                    resultado2.setText(elegidos.get(4).toString());
+                    if(resultado1.getText().equals(resultado2.getText())){
+                        Toast.makeText(MainActivity.this, "Respuesta Correcta!!!!", Toast.LENGTH_SHORT).show();
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                        abiertas.add(elegidos.get(4));
+                    }else{
+                        Toast.makeText(MainActivity.this, "OHHH NOOO!!! Prueba otra vez!!!", Toast.LENGTH_SHORT).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                int tv1Int = Integer.parseInt(tv1.getText().toString());
+                                int tv2Int = Integer.parseInt(tv2.getText().toString());
+                                int tv3Int = Integer.parseInt(tv3.getText().toString());
+                                int tv4Int = Integer.parseInt(tv4.getText().toString());
+                                int tv5Int = Integer.parseInt(tv5.getText().toString());
+                                int tv6Int = Integer.parseInt(tv6.getText().toString());
+                                int tv7Int = Integer.parseInt(tv7.getText().toString());
+                                int tv8Int = Integer.parseInt(tv8.getText().toString());
+
+                                if(!abiertas.contains(tv1Int)){
+                                    iv1.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv2Int)) {
+                                    iv2.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv3Int)){
+                                    iv3.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv4Int)){
+                                    iv4.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv5Int)){
+                                    iv5.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv6Int)){
+                                    iv6.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv7Int)){
+                                    iv7.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv8Int)){
+                                    iv8.setImageResource(R.drawable.reverso);
+                                }
+                            }
+                        }, duraccion);
+
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                    }
+                }
             }
         });
         iv6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iv6.setImageResource(imagenes.get(elegidos.get(5)));
+
+                if(resultado1.getText().equals("vacio")){
+                    resultado1.setText(elegidos.get(5).toString());
+                }else{
+                    resultado2.setText(elegidos.get(5).toString());
+                    if(resultado1.getText().equals(resultado2.getText())){
+                        Toast.makeText(MainActivity.this, "Respuesta Correcta!!!!", Toast.LENGTH_SHORT).show();
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                        abiertas.add(elegidos.get(5));
+                    }else{
+                        Toast.makeText(MainActivity.this, "OHHH NOOO!!! Prueba otra vez!!!", Toast.LENGTH_SHORT).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                int tv1Int = Integer.parseInt(tv1.getText().toString());
+                                int tv2Int = Integer.parseInt(tv2.getText().toString());
+                                int tv3Int = Integer.parseInt(tv3.getText().toString());
+                                int tv4Int = Integer.parseInt(tv4.getText().toString());
+                                int tv5Int = Integer.parseInt(tv5.getText().toString());
+                                int tv6Int = Integer.parseInt(tv6.getText().toString());
+                                int tv7Int = Integer.parseInt(tv7.getText().toString());
+                                int tv8Int = Integer.parseInt(tv8.getText().toString());
+
+                                if(!abiertas.contains(tv1Int)){
+                                    iv1.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv2Int)) {
+                                    iv2.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv3Int)){
+                                    iv3.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv4Int)){
+                                    iv4.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv5Int)){
+                                    iv5.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv6Int)){
+                                    iv6.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv7Int)){
+                                    iv7.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv8Int)){
+                                    iv8.setImageResource(R.drawable.reverso);
+                                }
+                            }
+                        }, duraccion);
+
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                    }
+                }
             }
         });
         iv7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iv7.setImageResource(imagenes.get(elegidos.get(6)));
+
+                if(resultado1.getText().equals("vacio")){
+                    resultado1.setText(elegidos.get(6).toString());
+                }else{
+                    resultado2.setText(elegidos.get(6).toString());
+                    if(resultado1.getText().equals(resultado2.getText())){
+                        Toast.makeText(MainActivity.this, "Respuesta Correcta!!!!", Toast.LENGTH_SHORT).show();
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                        abiertas.add(elegidos.get(6));
+                    }else{
+                        Toast.makeText(MainActivity.this, "OHHH NOOO!!! Prueba otra vez!!!", Toast.LENGTH_SHORT).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                int tv1Int = Integer.parseInt(tv1.getText().toString());
+                                int tv2Int = Integer.parseInt(tv2.getText().toString());
+                                int tv3Int = Integer.parseInt(tv3.getText().toString());
+                                int tv4Int = Integer.parseInt(tv4.getText().toString());
+                                int tv5Int = Integer.parseInt(tv5.getText().toString());
+                                int tv6Int = Integer.parseInt(tv6.getText().toString());
+                                int tv7Int = Integer.parseInt(tv7.getText().toString());
+                                int tv8Int = Integer.parseInt(tv8.getText().toString());
+
+                                if(!abiertas.contains(tv1Int)){
+                                    iv1.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv2Int)) {
+                                    iv2.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv3Int)){
+                                    iv3.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv4Int)){
+                                    iv4.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv5Int)){
+                                    iv5.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv6Int)){
+                                    iv6.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv7Int)){
+                                    iv7.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv8Int)){
+                                    iv8.setImageResource(R.drawable.reverso);
+                                }
+                            }
+                        }, duraccion);
+
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                    }
+                }
             }
         });
         iv8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iv8.setImageResource(imagenes.get(elegidos.get(7)));
+
+                if(resultado1.getText().equals("vacio")){
+                    resultado1.setText(elegidos.get(7).toString());
+                }else{
+                    resultado2.setText(elegidos.get(7).toString());
+                    if(resultado1.getText().equals(resultado2.getText())){
+                        Toast.makeText(MainActivity.this, "Respuesta Correcta!!!!", Toast.LENGTH_SHORT).show();
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                        abiertas.add(elegidos.get(7));
+                    }else{
+                        Toast.makeText(MainActivity.this, "OHHH NOOO!!! Prueba otra vez!!!", Toast.LENGTH_SHORT).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                int tv1Int = Integer.parseInt(tv1.getText().toString());
+                                int tv2Int = Integer.parseInt(tv2.getText().toString());
+                                int tv3Int = Integer.parseInt(tv3.getText().toString());
+                                int tv4Int = Integer.parseInt(tv4.getText().toString());
+                                int tv5Int = Integer.parseInt(tv5.getText().toString());
+                                int tv6Int = Integer.parseInt(tv6.getText().toString());
+                                int tv7Int = Integer.parseInt(tv7.getText().toString());
+                                int tv8Int = Integer.parseInt(tv8.getText().toString());
+
+                                if(!abiertas.contains(tv1Int)){
+                                    iv1.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv2Int)) {
+                                    iv2.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv3Int)){
+                                    iv3.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv4Int)){
+                                    iv4.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv5Int)){
+                                    iv5.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv6Int)){
+                                    iv6.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv7Int)){
+                                    iv7.setImageResource(R.drawable.reverso);
+                                }
+                                if(!abiertas.contains(tv8Int)){
+                                    iv8.setImageResource(R.drawable.reverso);
+                                }
+                            }
+                        }, duraccion);
+
+                        resultado1.setText("vacio");
+                        resultado2.setText("vacio");
+                    }
+                }
             }
         });
 
@@ -158,6 +607,14 @@ public class MainActivity extends AppCompatActivity {
         int numero = 0;
         numero = (int) (Math.random() * size);
         return numero;
+    }
+
+    public static void esperar(int segundos){
+        try {
+            Thread.sleep(segundos * 1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void Reiniciar(View view){

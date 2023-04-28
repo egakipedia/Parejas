@@ -18,4 +18,6 @@
     <string name="tv6">resultado</string>
     <string name="tv7">resultado</string>
     <string name="tv8">resultado</string>
+    <string name="tv_resultado1">vacio</string>
+    <string name="tv_resultado2">vacio</string>
 </resources>
